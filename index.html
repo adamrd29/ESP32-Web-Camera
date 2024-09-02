@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html{
+            background: black;
+        }
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button{
+            margin: 5px;
+            border-radius: 40%;
+            width: 80px;
+            height: 80px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        function move(direction){
+            let body = "direction="+direction;
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "/", true);
+            xhttp.send(body);
+        }
+    </script>
+</head>
+
+<body>
+    <div style="height: 100vh; flex-direction: column;">
+        <div>
+            <img src="/stream" style="transform:rotate(180deg)"; />
+        </div>
+        <hr>
+        <div style="flex-direction: column">
+            <div>
+                <button value='up' onclick='move(this.value)'>&#8593;</button>
+            </div>
+            <div>
+                <button value='left' onclick='move(this.value)'>&#8592;</button>
+                <button value='center' onclick='move(this.value)'>O</button>
+                <button value='right' onclick='move(this.value)'>&#8594;</button>
+            </div>
+            <div>
+                <button value='down' onclick='move(this.value)'>&#8595;</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
